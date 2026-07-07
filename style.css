@@ -54,3 +54,41 @@ button{
     color:white;
     font-size:28px;
 }
+.plus{
+    position:absolute;
+    color:#ffd700;
+    font-size:30px;
+    font-weight:bold;
+    pointer-events:none;
+    animation:fly 1s forwards;
+}
+
+@keyframes fly{
+
+0%{
+opacity:1;
+transform:translateY(0);
+}
+
+100%{
+opacity:0;
+transform:translateY(-80px);
+}
+
+}
+
+.coin{
+    font-size:120px;
+    cursor:pointer;
+    transition:.1s;
+    user-select:none;
+    animation:float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
+
+}
