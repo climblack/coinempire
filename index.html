@@ -3,128 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CoinEmpire</title>
 
+<link rel="stylesheet" href="style.css">
+
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-<style>
-body{
-    margin:0;
-    background:#111;
-    color:white;
-    font-family:Arial,sans-serif;
-    text-align:center;
-}
-
-.container{
-    padding:25px;
-}
-
-h1{
-    font-size:42px;
-}
-
-.card{
-    background:#1d1d1d;
-    border-radius:20px;
-    padding:20px;
-    margin:15px auto;
-    width:90%;
-    max-width:400px;
-}
-
-.value{
-    font-size:34px;
-    font-weight:bold;
-    margin-top:10px;
-}
-
-.energy{
-    color:#00ff88;
-}
-
-button{
-    width:240px;
-    height:70px;
-    border:none;
-    border-radius:20px;
-    background:#00c853;
-    color:white;
-    font-size:28px;
-    margin-top:30px;
-}
-
-button:active{
-    transform:scale(.96);
-}
-</style>
-
 </head>
+
 <body>
 
 <div class="container">
 
-<h1>🪙 CoinEmpire</h1>
+<div class="top">
+<h1 class="balance">
+💰 <span id="coins">0</span>
+</h1>
 
-<div class="card">
-<h2>Баланс</h2>
-<div class="value" id="coins">0</div>
+<div class="energy">
+<div class="energy-fill" id="energyFill"></div>
 </div>
 
-<div class="card">
-<h2>⚡ Энергия</h2>
-<div class="value energy" id="energy">100/100</div>
+<p id="energyText">⚡100 / 100</p>
 </div>
 
-<button onclick="mine()">⛏ МАЙНИТЬ</button>
+<div class="coin-area">
 
-<p>+1 монета за клик</p>
+<div class="coin" id="coin">
+🪙
+</div>
 
 </div>
 
-<script>
+<div class="bottom-menu">
 
-Telegram.WebApp.ready();
+<div class="menu-item active">
+<span>🏠</span>
+Главная
+</div>
 
-let coins=Number(localStorage.getItem("coins"))||0;
-let energy=Number(localStorage.getItem("energy"))||100;
+<div class="menu-item">
+<span>🛒</span>
+Магазин
+</div>
 
-function save(){
-localStorage.setItem("coins",coins);
-localStorage.setItem("energy",energy);
-}
+<div class="menu-item">
+<span>👥</span>
+Друзья
+</div>
 
-function draw(){
-document.getElementById("coins").innerHTML=coins;
-document.getElementById("energy").innerHTML=energy+"/100";
-}
+<div class="menu-item">
+<span>🎯</span>
+Задания
+</div>
 
-function mine(){
+<div class="menu-item">
+<span>👤</span>
+Профиль
+</div>
 
-if(energy<=0)return;
+</div>
 
-coins++;
-energy--;
+</div>
 
-save();
-draw();
-
-}
-
-setInterval(()=>{
-
-if(energy<100){
-energy++;
-save();
-draw();
-}
-
-},1000);
-
-draw();
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
-Update index.html
