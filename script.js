@@ -45,3 +45,11 @@ setInterval(() => {
         energyText.innerText = energy;
     }
 }, 1000);
+function saveGame() {
+    localStorage.setItem("coinEmpire", JSON.stringify({
+        coins,
+        energy,
+        clickPower,
+        clickPrice
+    }));
+}
