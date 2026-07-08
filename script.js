@@ -143,3 +143,107 @@ player.level++;
 updateUI();
 
 };
+// ==============================
+// Автовосстановление энергии
+// ==============================
+
+setInterval(() => {
+
+    if (player.energy < player.maxEnergy) {
+        player.energy++;
+        updateUI();
+    }
+
+}, 1000);
+
+// ==============================
+// Пассивный доход
+// ==============================
+
+setInterval(() => {
+
+    if (player.income > 0) {
+
+        player.coins += player.income / 3600;
+
+        updateUI();
+
+    }
+
+}, 1000);
+
+// ==============================
+// Покупка силы клика
+// ==============================
+
+buyClick.onclick = function () {
+
+    let price = player.clickPower * 100;
+
+    if (player.coins < price) {
+
+        alert("Недостаточно монет!");
+
+        return;
+
+    }
+
+    player.coins -= price;
+
+    player.clickPower++;
+
+    buyClick.innerHTML = player.clickPower * 100;
+
+    updateUI();
+
+};
+
+// ==============================
+// Покупка энергии
+// ==============================
+
+buyEnergy.onclick = function () {
+
+    let price = player.maxEnergy / 4;
+
+    if (player.coins < price) {
+
+        alert("Недостаточно монет!");
+
+        return;
+
+    }
+
+    player.coins -= price;
+
+    player.maxEnergy += 100;
+
+    player.energy = player.maxEnergy;
+
+    updateUI();
+
+};
+
+// ==============================
+// Покупка дохода
+// ==============================
+
+buyIncome.onclick = function () {
+
+    let price = (player.income + 10) * 50;
+
+    if (player.coins < price) {
+
+        alert("Недостаточно монет!");
+
+        return;
+
+    }
+
+    player.coins -= price;
+
+    player.income += 10;
+
+    updateUI();
+
+};
