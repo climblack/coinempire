@@ -131,3 +131,6 @@ function createParticle(x, y) {
 
     setTimeout(() => p.remove(), 700);
 }
+for(let i = 0; i < 8; i++){
+    createParticle(e.pageX, e.pageY);
+}
