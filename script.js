@@ -88,3 +88,58 @@ save();
 }
 
 updateUI();
+// ==============================
+// Клик
+// ==============================
+
+coin.onclick=function(){
+
+if(player.energy<=0)return;
+
+player.energy--;
+
+player.coins+=player.clickPower;
+
+player.xp++;
+
+coin.style.transform="scale(.9)";
+
+setTimeout(()=>{
+
+coin.style.transform="scale(1)";
+
+},80);
+
+// Всплывающее +монеты
+
+let popup=document.createElement("div");
+
+popup.className="popup";
+
+popup.innerHTML="+"+player.clickPower;
+
+popup.style.left=(coin.offsetLeft+80)+"px";
+
+popup.style.top=(coin.offsetTop+80)+"px";
+
+document.body.appendChild(popup);
+
+setTimeout(()=>{
+
+popup.remove();
+
+},800);
+
+// Повышение уровня
+
+if(player.xp>=100){
+
+player.xp=0;
+
+player.level++;
+
+}
+
+updateUI();
+
+};
