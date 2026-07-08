@@ -1,57 +1,128 @@
-8Ош<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoinEmpire</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Telegram WebApp -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
+
 <body>
 
-<div class="top">
-    <h2>💰 <span id="coins">0</span></h2>
+<div class="app">
 
-    <div class="energy-box">
-    <div class="energy-text">
-        ⚡ <span id="energy">100</span>/100
-    </div>
+    <!-- Верхняя панель -->
+    <header>
 
-    <div class="energy-bar">
-        <div id="energyFill" class="energy-fill"></div>
-    </div>
-</div>
+        <div class="profile">
 
-<div class="game">
+            <img src="assets/avatar.png" class="avatar">
 
-    <div id="coin" class="coin">
-    <img src="assets/coin.png" alt="Coin">
-</div>
+            <div>
+                <h2 id="username">Player</h2>
+                <p>CoinEmpire</p>
+            </div>
 
-</div>
+        </div>
 
-<div class="bottom">
-    <button>🏠</button>
-    <button>🛒</button>
-    <button>📈</button>
-    <button>⚙️</button>
+    </header>
+
+    <!-- Баланс -->
+
+    <section class="balance">
+
+        <h1 id="coins">0</h1>
+        <span>Coins</span>
+
+    </section>
+
+    <!-- Энергия -->
+
+    <section class="energy">
+
+        <div class="energy-bar">
+
+            <div class="energy-fill" id="energyFill"></div>
+
+        </div>
+
+        <p>
+            ⚡
+            <span id="energy">1000</span>
+            /
+            <span id="maxEnergy">1000</span>
+        </p>
+
+    </section>
+
+    <!-- Монета -->
+
+    <section class="coin-section">
+
+        <img
+            src="assets/coin.png"
+            id="coin"
+            class="coin"
+            draggable="false"
+        >
+
+    </section>
+
+    <!-- Доход -->
+
+    <section class="stats">
+
+        <div class="card">
+            <span>Доход / час</span>
+            <h3 id="income">0</h3>
+        </div>
+
+        <div class="card">
+            <span>Уровень</span>
+            <h3 id="level">1</h3>
+        </div>
+
+    </section>
+
+    <!-- Нижнее меню -->
+
+    <nav>
+
+        <button id="homeBtn">
+            🏠
+            <span>Главная</span>
+        </button>
+
+        <button id="upgradeBtn">
+            🚀
+            <span>Улучшения</span>
+        </button>
+
+        <button id="tasksBtn">
+            📋
+            <span>Задания</span>
+        </button>
+
+        <button id="friendsBtn">
+            👥
+            <span>Друзья</span>
+        </button>
+
+        <button id="walletBtn">
+            💎
+            <span>Кошелёк</span>
+        </button>
+
+    </nav>
+
 </div>
 
 <script src="script.js"></script>
 
 </body>
 </html>
-<div class="shop">
-    <h3>🛒 Магазин</h3>
-
-    <button id="upgradeClick">
-        Улучшить клик (+1)
-        <br>
-        Цена: <span id="clickPrice">50</span>
-    </button>
-</div>
-<button id="upgradeAuto">
-    🤖 Автодобыча
-    <br>
-    Цена: <span id="autoPrice">250</span>
-</button>
