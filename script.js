@@ -53,3 +53,15 @@ function saveGame() {
         clickPrice
     }));
 }
+const save = JSON.parse(localStorage.getItem("coinEmpire"));
+
+if (save) {
+    coins = save.coins;
+    energy = save.energy;
+    clickPower = save.clickPower;
+    clickPrice = save.clickPrice;
+
+    coinsText.innerText = coins;
+    energyText.innerText = energy;
+    clickPriceText.innerText = clickPrice;
+}
