@@ -189,3 +189,191 @@ header{
     font-weight:bold;
     cursor:pointer;
 }
+/* ===========================
+   TASKS
+=========================== */
+
+.tasks{
+    margin-top:40px;
+}
+
+.tasks h2{
+    margin-bottom:15px;
+}
+
+.task{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#1e293b;
+    padding:16px;
+    border-radius:15px;
+    margin-bottom:12px;
+}
+
+.task button{
+    background:#00d084;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.task button:hover{
+    opacity:.9;
+}
+
+/* ===========================
+   FRIENDS
+=========================== */
+
+.friends{
+    margin-top:40px;
+}
+
+.friends h2{
+    margin-bottom:15px;
+}
+
+.friends p{
+    margin-bottom:15px;
+    color:#cbd5e1;
+}
+
+.friends button{
+    width:100%;
+    padding:14px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* ===========================
+   WALLET
+=========================== */
+
+.wallet{
+    margin-top:40px;
+    background:#1e293b;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+}
+
+.wallet h2{
+    margin-bottom:15px;
+}
+
+.wallet p{
+    color:#94a3b8;
+    margin-bottom:10px;
+}
+
+.wallet h3{
+    font-size:30px;
+    color:#FFD700;
+    margin-bottom:20px;
+}
+
+.wallet button{
+    width:100%;
+    padding:15px;
+    background:#8b5cf6;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* ===========================
+   NAVIGATION
+=========================== */
+
+nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:75px;
+    background:#111827;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border-top:1px solid #374151;
+}
+
+nav button{
+    background:none;
+    border:none;
+    color:#94a3b8;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    cursor:pointer;
+    font-size:13px;
+}
+
+nav button span{
+    margin-top:5px;
+}
+
+nav button:hover{
+    color:#FFD700;
+}
+
+/* ===========================
+   POPUP +1
+=========================== */
+
+.popup{
+    position:absolute;
+    color:#FFD700;
+    font-size:30px;
+    font-weight:bold;
+    pointer-events:none;
+    animation:popup .8s linear forwards;
+}
+
+@keyframes popup{
+
+0%{
+opacity:1;
+transform:translateY(0);
+}
+
+100%{
+opacity:0;
+transform:translateY(-100px);
+}
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:500px){
+
+.coin{
+width:190px;
+}
+
+.balance h1{
+font-size:42px;
+}
+
+.card h3{
+font-size:22px;
+}
+
+.profile-info h2{
+font-size:18px;
+}
+
+}
