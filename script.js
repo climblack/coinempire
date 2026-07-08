@@ -247,3 +247,102 @@ buyIncome.onclick = function () {
     updateUI();
 
 };
+// ==============================
+// Ежедневный бонус
+// ==============================
+
+const DAY = 24 * 60 * 60 * 1000;
+
+function dailyReward(){
+
+    const lastReward = Number(localStorage.getItem("lastReward")) || 0;
+
+    if(Date.now() - lastReward >= DAY){
+
+        player.coins += 1000;
+
+        localStorage.setItem("lastReward", Date.now());
+
+        alert("🎁 Вы получили ежедневный бонус: 1000 монет!");
+
+        updateUI();
+
+    }
+
+}
+
+dailyReward();
+
+// ==============================
+// Достижения
+// ==============================
+
+function checkAchievements(){
+
+    if(player.coins >= 1000){
+
+        console.log("🏆 Достижение: 1000 монет");
+
+    }
+
+    if(player.level >= 5){
+
+        console.log("🏆 Достижение: Уровень 5");
+
+    }
+
+    if(player.level >= 10){
+
+        console.log("🏆 Достижение: Уровень 10");
+
+    }
+
+}
+
+setInterval(checkAchievements,5000);
+
+// ==============================
+// Задания
+// ==============================
+
+let tasks = [
+
+{
+
+title:"Сделать 100 кликов",
+
+reward:500,
+
+need:100,
+
+done:false
+
+},
+
+{
+
+title:"Накопить 5000 монет",
+
+reward:1000,
+
+need:5000,
+
+done:false
+
+}
+
+];
+
+function completeTask(index){
+
+    if(tasks[index].done) return;
+
+    tasks[index].done = true;
+
+    player.coins += tasks[index].reward;
+
+    alert("✅ Задание выполнено! +" + tasks[index].reward);
+
+    updateUI();
+
+}
