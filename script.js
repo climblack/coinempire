@@ -120,3 +120,14 @@ function updateEnergy(){
         (energy / maxEnergy * 100) + "%";
 
 }
+function createParticle(x, y) {
+    const p = document.createElement("div");
+
+    p.className = "particle";
+    p.style.left = x + "px";
+    p.style.top = y + "px";
+
+    document.body.appendChild(p);
+
+    setTimeout(() => p.remove(), 700);
+}
