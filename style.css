@@ -1,13 +1,19 @@
+/* ===========================
+   CoinEmpire Style
+=========================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
     font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    background:#111827;
-    color:white;
+    background:#0f172a;
+    color:#fff;
+    overflow-x:hidden;
 }
 
 .app{
@@ -15,45 +21,70 @@ body{
     margin:auto;
     min-height:100vh;
     padding:20px;
+    padding-bottom:100px;
 }
 
 header{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    margin-bottom:25px;
 }
 
 .profile{
     display:flex;
     align-items:center;
-    gap:12px;
 }
 
 .avatar{
-    width:55px;
-    height:55px;
+    width:60px;
+    height:60px;
     border-radius:50%;
-    border:2px solid #FFD700;
+    border:3px solid gold;
+    margin-right:15px;
+}
+
+.profile-info h2{
+    font-size:22px;
+}
+
+.profile-info p{
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.top-buttons button{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#1e293b;
+    color:white;
+    font-size:20px;
 }
 
 .balance{
     text-align:center;
-    margin-top:25px;
 }
 
 .balance h1{
-    font-size:48px;
+    font-size:50px;
     color:#FFD700;
 }
 
+.balance p{
+    color:#94a3b8;
+    margin-top:5px;
+}
+
 .energy{
-    margin-top:20px;
+    margin-top:25px;
 }
 
 .energy-bar{
     width:100%;
-    height:12px;
-    background:#333;
+    height:14px;
+    background:#334155;
     border-radius:20px;
     overflow:hidden;
 }
@@ -61,24 +92,38 @@ header{
 .energy-fill{
     width:100%;
     height:100%;
-    background:#00ff88;
+    background:linear-gradient(90deg,#00ff80,#00d4ff);
 }
 
 .energy p{
     text-align:center;
-    margin-top:8px;
+    margin-top:10px;
+    font-size:16px;
 }
 
 .coin-section{
     display:flex;
     justify-content:center;
+    align-items:center;
     margin-top:35px;
+    position:relative;
+}
+
+.coin-shadow{
+    width:230px;
+    height:230px;
+    background:#FFD70033;
+    border-radius:50%;
+    filter:blur(40px);
+    position:absolute;
 }
 
 .coin{
     width:220px;
-    cursor:pointer;
+    z-index:2;
     transition:.1s;
+    cursor:pointer;
+    user-select:none;
 }
 
 .coin:active{
@@ -86,46 +131,61 @@ header{
 }
 
 .stats{
-    display:flex;
+    display:grid;
+    grid-template-columns:1fr 1fr;
     gap:15px;
     margin-top:35px;
 }
 
 .card{
-    flex:1;
-    background:#1f2937;
+    background:#1e293b;
     border-radius:15px;
-    padding:15px;
+    padding:20px;
     text-align:center;
+}
+
+.card span{
+    color:#94a3b8;
 }
 
 .card h3{
     margin-top:10px;
     color:#FFD700;
+    font-size:26px;
 }
 
-nav{
-    position:fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    background:#1f2937;
-    display:flex;
-    justify-content:space-around;
-    padding:12px;
+.shop{
+    margin-top:40px;
 }
 
-nav button{
-    background:none;
-    border:none;
-    color:white;
+.shop h2{
+    margin-bottom:15px;
+}
+
+.upgrade{
+    background:#1e293b;
+    border-radius:15px;
+    padding:18px;
     display:flex;
-    flex-direction:column;
+    justify-content:space-between;
     align-items:center;
-    font-size:14px;
-    cursor:pointer;
+    margin-bottom:15px;
 }
 
-nav button:hover{
-    color:#FFD700;
+.upgrade h3{
+    margin-bottom:5px;
+}
+
+.upgrade p{
+    color:#94a3b8;
+}
+
+.upgrade button{
+    background:#FFD700;
+    color:#000;
+    border:none;
+    border-radius:12px;
+    padding:12px 22px;
+    font-weight:bold;
+    cursor:pointer;
 }
