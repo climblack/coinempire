@@ -108,3 +108,5 @@ setInterval(() => {
     }
 
 }, 1000);
+autoIncome,
+autoPrice
