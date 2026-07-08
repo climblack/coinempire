@@ -1,51 +1,90 @@
-// Получаем элементы
+// ==============================
+// CoinEmpire Engine
+// ==============================
+
+// Telegram WebApp
+const tg = window.Telegram.WebApp;
+tg.expand();
+
+// Элементы
 const coin = document.getElementById("coin");
 const coinsText = document.getElementById("coins");
 const energyText = document.getElementById("energy");
+const maxEnergyText = document.getElementById("maxEnergy");
 const energyFill = document.getElementById("energyFill");
 
+const incomeText = document.getElementById("income");
+const levelText = document.getElementById("level");
+
+// Кнопки магазина
+const buyClick = document.getElementById("buyClick");
+const buyEnergy = document.getElementById("buyEnergy");
+const buyIncome = document.getElementById("buyIncome");
+
+// ==============================
 // Данные игрока
-let coins = Number(localStorage.getItem("coins")) || 0;
-let energy = Number(localStorage.getItem("energy")) || 1000;
-const maxEnergy = 1000;
-const clickPower = 1;
+// ==============================
 
-// Обновление интерфейса
-function updateUI() {
-    coinsText.innerText = coins;
-    energyText.innerText = energy;
-    energyFill.style.width = (energy / maxEnergy * 100) + "%";
+let player = {
 
-    localStorage.setItem("coins", coins);
-    localStorage.setItem("energy", energy);
+coins:Number(localStorage.getItem("coins"))||0,
+
+energy:Number(localStorage.getItem("energy"))||1000,
+
+maxEnergy:Number(localStorage.getItem("maxEnergy"))||1000,
+
+clickPower:Number(localStorage.getItem("clickPower"))||1,
+
+income:Number(localStorage.getItem("income"))||0,
+
+level:Number(localStorage.getItem("level"))||1,
+
+xp:Number(localStorage.getItem("xp"))||0
+
+};
+
+// ==============================
+// Сохранение
+// ==============================
+
+function save(){
+
+localStorage.setItem("coins",player.coins);
+
+localStorage.setItem("energy",player.energy);
+
+localStorage.setItem("maxEnergy",player.maxEnergy);
+
+localStorage.setItem("clickPower",player.clickPower);
+
+localStorage.setItem("income",player.income);
+
+localStorage.setItem("level",player.level);
+
+localStorage.setItem("xp",player.xp);
+
 }
 
-// Клик по монете
-coin.addEventListener("click", () => {
+// ==============================
+// Интерфейс
+// ==============================
 
-    if (energy <= 0) return;
+function updateUI(){
 
-    coins += clickPower;
-    energy--;
+coinsText.innerHTML=Math.floor(player.coins);
 
-    coin.style.transform = "scale(0.9)";
+energyText.innerHTML=player.energy;
 
-    setTimeout(() => {
-        coin.style.transform = "scale(1)";
-    }, 100);
+maxEnergyText.innerHTML=player.maxEnergy;
 
-    updateUI();
-});
+incomeText.innerHTML=player.income;
 
-// Восстановление энергии
-setInterval(() => {
+levelText.innerHTML=player.level;
 
-    if (energy < maxEnergy) {
-        energy++;
-        updateUI();
-    }
+energyFill.style.width=(player.energy/player.maxEnergy*100)+"%";
 
-}, 1000);
+save();
 
-// Первый запуск
+}
+
 updateUI();
