@@ -99,3 +99,12 @@ autoBtn.onclick = () => {
 
     saveGame();
 };
+setInterval(() => {
+
+    if (autoIncome > 0) {
+        coins += autoIncome;
+        coinsText.innerText = coins;
+        saveGame();
+    }
+
+}, 1000);
