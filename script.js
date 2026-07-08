@@ -65,3 +65,4 @@ if (save) {
     energyText.innerText = energy;
     clickPriceText.innerText = clickPrice;
 }
+saveGame();
