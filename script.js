@@ -66,3 +66,10 @@ if (save) {
     clickPriceText.innerText = clickPrice;
 }
 saveGame();
+coins += clickPower;
+energy--;
+
+coinsText.innerText = coins;
+energyText.innerText = energy;
+
+saveGame();
