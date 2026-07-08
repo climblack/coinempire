@@ -112,3 +112,11 @@ autoIncome,
 autoPrice
 autoIncome = save.autoIncome || 0;
 autoPrice = save.autoPrice || 250;
+function updateEnergy(){
+
+    energyText.innerText = energy;
+
+    energyFill.style.width =
+        (energy / maxEnergy * 100) + "%";
+
+}
