@@ -7,7 +7,7 @@ const maxEnergy = 100;
 const coin = document.getElementById("coin");
 const coinsText = document.getElementById("coins");
 const energyText = document.getElementById("energy");
-
+const energyFill = document.getElementById("energyFill");
 coin.addEventListener("click", (e) => {
 
     if (energy <= 0) return;
