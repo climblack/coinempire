@@ -16,7 +16,7 @@ coin.addEventListener("click", (e) => {
     energy--;
 
     coinsText.innerText = coins;
-    energyText.innerText = energy;
+    updateEnergy();
 
     // Вибрация
     if (navigator.vibrate) navigator.vibrate(20);
