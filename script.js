@@ -83,3 +83,19 @@ coinsText.innerText = coins;
 clickPriceText.innerText = clickPrice;
 
 saveGame();
+const autoBtn = document.getElementById("upgradeAuto");
+const autoPriceText = document.getElementById("autoPrice");
+
+autoBtn.onclick = () => {
+
+    if (coins < autoPrice) return;
+
+    coins -= autoPrice;
+    autoIncome++;
+    autoPrice = Math.floor(autoPrice * 2);
+
+    coinsText.innerText = coins;
+    autoPriceText.innerText = autoPrice;
+
+    saveGame();
+};
