@@ -1,136 +1,399 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoinEmpire</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Telegram WebApp -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<title>CoinEmpire</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 </head>
 
 <body>
 
 <div class="app">
 
-    <!-- Верхняя панель -->
-    <header>
+<header>
 
-        <div class="profile">
+<div class="profile">
 
-            <img src="assets/avatar.png" class="avatar">
+<img src="assets/avatar.png" class="avatar">
 
-            <div>
-                <h2 id="username">Player</h2>
-                <p>CoinEmpire</p>
-            </div>
+<div class="profile-info">
 
-        </div>
+<h2 id="username">Player</h2>
 
-    </header>
-
-    <!-- Баланс -->
-
-    <section class="balance">
-
-        <h1 id="coins">0</h1>
-        <span>Coins</span>
-
-    </section>
-
-    <!-- Энергия -->
-
-    <section class="energy">
-
-        <div class="energy-bar">
-
-            <div class="energy-fill" id="energyFill"></div>
-
-        </div>
-
-        <p>
-            ⚡
-            <span id="energy">1000</span>
-            /
-            <span id="maxEnergy">1000</span>
-        </p>
-
-    </section>
-
-    <!-- Монета -->
-
-    <section class="coin-section">
-
-        <img
-            src="assets/coin.png"
-            id="coin"
-            class="coin"
-            draggable="false"
-        >
-
-    </section>
-
-    <!-- Доход -->
-
-    <section class="stats">
-
-        <div class="card">
-            <span>Доход / час</span>
-            <h3 id="income">0</h3>
-        </div>
-
-        <div class="card">
-            <span>Уровень</span>
-            <h3 id="level">1</h3>
-        </div>
-
-    </section>
-
-    <!-- Нижнее меню -->
-
-    <nav>
-
-        <button id="homeBtn">
-            🏠
-            <span>Главная</span>
-        </button>
-
-        <button id="upgradeBtn">
-            🚀
-            <span>Улучшения</span>
-        </button>
-
-        <button id="tasksBtn">
-            📋
-            <span>Задания</span>
-        </button>
-
-        <button id="friendsBtn">
-            👥
-            <span>Друзья</span>
-        </button>
-
-        <button id="walletBtn">
-            💎
-            <span>Кошелёк</span>
-        </button>
-
-    </nav>
+<p>CoinEmpire</p>
 
 </div>
 
+</div>
+
+<div class="top-buttons">
+
+<button id="settingsBtn">⚙️</button>
+
+</div>
+
+</header>
+
+<section class="balance">
+
+<h1 id="coins">0</h1>
+
+<p>COINS</p>
+
+</section>
+
+<section class="energy">
+
+<div class="energy-bar">
+
+<div id="energyFill" class="energy-fill"></div>
+
+</div>
+
+<p>
+
+⚡
+
+<span id="energy">
+
+1000
+
+</span>
+
+/
+
+<span id="maxEnergy">
+
+1000
+
+</span>
+
+</p>
+
+</section>
+
+<section class="coin-section">
+
+<div class="coin-shadow"></div>
+
+<img
+src="assets/coin.png"
+id="coin"
+class="coin"
+draggable="false">
+
+</section>
+
+<section class="stats">
+
+<div class="card">
+
+<span>Уровень</span>
+
+<h3 id="level">
+
+1
+
+</h3>
+
+</div>
+
+<div class="card">
+
+<span>Доход/час</span>
+
+<h3 id="income">
+
+0
+
+</h3>
+
+</div>
+
+</section>
+
+<section class="shop">
+
+<h2>
+
+🚀 Улучшения
+
+</h2>
+
+<div class="upgrade">
+
+<div>
+
+<h3>
+
+Сила клика
+
+</h3>
+
+<p>
+
++1 монета за клик
+
+</p>
+
+</div>
+
+<button id="buyClick">
+
+100
+
+</button>
+
+</div>
+
+<div class="upgrade">
+
+<div>
+
+<h3>
+
+Энергия
+
+</h3>
+
+<p>
+
++100 энергии
+
+</p>
+
+</div>
+
+<button id="buyEnergy">
+
+250
+
+</button>
+
+</div>
+
+<div class="upgrade">
+
+<div>
+
+<h3>
+
+Доход
+
+</h3>
+
+<p>
+
++10 монет в час
+
+</p>
+
+</div>
+
+<button id="buyIncome">
+
+500
+
+</button>
+
+</div>
+
+</section>
+
+<section class="tasks">
+
+<h2>
+
+📋 Задания
+
+</h2>
+
+<div class="task">
+
+<span>
+
+Подписаться на Telegram
+
+</span>
+
+<button>
+
+Получить
+
+</button>
+
+</div>
+
+<div class="task">
+
+<span>
+
+Пригласить друга
+
+</span>
+
+<button>
+
+Получить
+
+</button>
+
+</div>
+
+<div class="task">
+
+<span>
+
+Сделать 100 кликов
+
+</span>
+
+<button>
+
+Получить
+
+</button>
+
+</div>
+
+</section>
+
+<section class="friends">
+
+<h2>
+
+👥 Друзья
+
+</h2>
+
+<p>
+
+Приглашено:
+
+<span id="friends">
+
+0
+
+</span>
+
+</p>
+
+<button id="inviteFriend">
+
+Пригласить
+
+</button>
+
+</section>
+
+<section class="wallet">
+
+<h2>
+
+💎 Кошелёк
+
+</h2>
+
+<p>
+
+Баланс TON
+
+</p>
+
+<h3>
+
+0 TON
+
+</h3>
+
+<button id="connectWallet">
+
+Подключить кошелёк
+
+</button>
+
+</section>
+
+<nav>
+
+<button id="homeBtn">
+
+🏠
+
+<span>
+
+Главная
+
+</span>
+
+</button>
+
+<button id="upgradeBtn">
+
+🚀
+
+<span>
+
+Улучшения
+
+</span>
+
+</button>
+
+<button id="tasksBtn">
+
+📋
+
+<span>
+
+Задания
+
+</span>
+
+</button>
+
+<button id="friendsBtn">
+
+👥
+
+<span>
+
+Друзья
+
+</span>
+
+</button>
+
+<button id="walletBtn">
+
+💎
+
+<span>
+
+Кошелёк
+
+</span>
+
+</button>
+
+</nav>
+
+<div id="popupContainer"></div>
+
+<div id="floatingCoins"></div>
+
 <script src="script.js"></script>
 
+</div>
+
 </body>
+
 </html>
-CoinEmpire/
-│
-├── index.html
-├── style.css
-├── script.js
-└── assets/
-    ├── coin.png
-    └── avatar.png
