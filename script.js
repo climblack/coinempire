@@ -73,3 +73,11 @@ coinsText.innerText = coins;
 energyText.innerText = energy;
 
 saveGame();
+coins -= clickPrice;
+clickPower++;
+clickPrice = Math.floor(clickPrice * 1.7);
+
+coinsText.innerText = coins;
+clickPriceText.innerText = clickPrice;
+
+saveGame();
