@@ -1,3 +1,5 @@
+let autoIncome = 0;
+let autoPrice = 250;
 let coins = 0;
 let energy = 100;
 const maxEnergy = 100;
