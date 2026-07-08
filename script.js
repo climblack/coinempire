@@ -1,136 +1,51 @@
-let autoIncome = 0;
-let autoPrice = 250;
-let coins = 0;
-let energy = 100;
-const maxEnergy = 100;
-
+// Получаем элементы
 const coin = document.getElementById("coin");
 const coinsText = document.getElementById("coins");
 const energyText = document.getElementById("energy");
 const energyFill = document.getElementById("energyFill");
-coin.addEventListener("click", (e) => {
+
+// Данные игрока
+let coins = Number(localStorage.getItem("coins")) || 0;
+let energy = Number(localStorage.getItem("energy")) || 1000;
+const maxEnergy = 1000;
+const clickPower = 1;
+
+// Обновление интерфейса
+function updateUI() {
+    coinsText.innerText = coins;
+    energyText.innerText = energy;
+    energyFill.style.width = (energy / maxEnergy * 100) + "%";
+
+    localStorage.setItem("coins", coins);
+    localStorage.setItem("energy", energy);
+}
+
+// Клик по монете
+coin.addEventListener("click", () => {
 
     if (energy <= 0) return;
 
-    coins++;
+    coins += clickPower;
     energy--;
 
-    coinsText.innerText = coins;
-    updateEnergy();
+    coin.style.transform = "scale(0.9)";
 
-    // Вибрация
-    if (navigator.vibrate) navigator.vibrate(20);
-
-    // Анимация монеты
-    coin.style.transform = "scale(.9)";
     setTimeout(() => {
         coin.style.transform = "scale(1)";
     }, 100);
 
-    // +1
-    const plus = document.createElement("div");
-    plus.className = "plus";
-    plus.innerText = "+1";
-
-    plus.style.left = e.pageX + "px";
-    plus.style.top = e.pageY + "px";
-
-    document.body.appendChild(plus);
-
-    setTimeout(() => plus.remove(), 1000);
+    updateUI();
 });
 
 // Восстановление энергии
 setInterval(() => {
+
     if (energy < maxEnergy) {
         energy++;
-        energyText.innerText = energy;
-    }
-}, 1000);
-function saveGame() {
-    localStorage.setItem("coinEmpire", JSON.stringify({
-        coins,
-        energy,
-        clickPower,
-        clickPrice
-    }));
-}
-const save = JSON.parse(localStorage.getItem("coinEmpire"));
-
-if (save) {
-    coins = save.coins;
-    energy = save.energy;
-    clickPower = save.clickPower;
-    clickPrice = save.clickPrice;
-
-    coinsText.innerText = coins;
-    energyText.innerText = energy;
-    clickPriceText.innerText = clickPrice;
-}
-saveGame();
-coins += clickPower;
-energy--;
-
-coinsText.innerText = coins;
-energyText.innerText = energy;
-
-saveGame();
-coins -= clickPrice;
-clickPower++;
-clickPrice = Math.floor(clickPrice * 1.7);
-
-coinsText.innerText = coins;
-clickPriceText.innerText = clickPrice;
-
-saveGame();
-const autoBtn = document.getElementById("upgradeAuto");
-const autoPriceText = document.getElementById("autoPrice");
-
-autoBtn.onclick = () => {
-
-    if (coins < autoPrice) return;
-
-    coins -= autoPrice;
-    autoIncome++;
-    autoPrice = Math.floor(autoPrice * 2);
-
-    coinsText.innerText = coins;
-    autoPriceText.innerText = autoPrice;
-
-    saveGame();
-};
-setInterval(() => {
-
-    if (autoIncome > 0) {
-        coins += autoIncome;
-        coinsText.innerText = coins;
-        saveGame();
+        updateUI();
     }
 
 }, 1000);
-autoIncome,
-autoPrice
-autoIncome = save.autoIncome || 0;
-autoPrice = save.autoPrice || 250;
-function updateEnergy(){
 
-    energyText.innerText = energy;
-
-    energyFill.style.width =
-        (energy / maxEnergy * 100) + "%";
-
-}
-function createParticle(x, y) {
-    const p = document.createElement("div");
-
-    p.className = "particle";
-    p.style.left = x + "px";
-    p.style.top = y + "px";
-
-    document.body.appendChild(p);
-
-    setTimeout(() => p.remove(), 700);
-}
-for(let i = 0; i < 8; i++){
-    createParticle(e.pageX, e.pageY);
-}
+// Первый запуск
+updateUI();
