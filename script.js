@@ -110,3 +110,5 @@ setInterval(() => {
 }, 1000);
 autoIncome,
 autoPrice
+autoIncome = save.autoIncome || 0;
+autoPrice = save.autoPrice || 250;
